@@ -20,8 +20,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpHeight;
 
+    private int count;
+
     //references 
     private CharacterController controller;
+    private Animator anim;
 
 
     // Start is called before the first frame update
@@ -29,12 +32,20 @@ public class PlayerMovement : MonoBehaviour
     {
         //reference to character controller component 
         controller = GetComponent<CharacterController>();
+        //checking children components for an animator 
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         Move();
+
+        //set clicking the mouse to attack
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(Attack());
+        }
     }
 
     //function for movement 
@@ -92,21 +103,53 @@ public class PlayerMovement : MonoBehaviour
 
     private void Idle()
     {
-
+        //setting idle function to the idle animation 
+        //using 0 cause speed parameter in the animator has idle equal to 0
+        //the 0.1 and deltatime are used to make smooth transition between animations
+        anim.SetFloat("Speed", 0, 0.1f, Time.deltaTime);
     }
 
     private void Walk()
     {
         moveSpeed = walkSpeed;
+        //setting walk function to the walk animation
+        //use 0.5 cause the speed parameter has walk equal to 0.5
+        //the 0.1 and deltatime are used to make smooth transition between animations
+        anim.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
     }
 
     private void Run()
     {
         moveSpeed = runSpeed;
+        //setting run function to the run animation
+        //use 1 cause the speed parameter has walk equal to 1
+        //the 0.1 and deltatime are used to make smooth transition between animations
+        anim.SetFloat("Speed", 1, 0.1f, Time.deltaTime);
     }
 
     private void Jump()
     {
         velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+    }
+
+    private IEnumerator Attack()
+    {
+        anim.SetLayerWeight(anim.GetLayerIndex("Attack Layer"), 1);
+        //setting up the trigger in animator called attack 
+        anim.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(0.9f);
+        anim.SetLayerWeight(anim.GetLayerIndex("Attack Layer"), 0);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUp"))
+        //pickUp object incremented by 1
+        {
+            other.gameObject.SetActive(false);
+            count = count + 1;
+
+        }
     }
 }
