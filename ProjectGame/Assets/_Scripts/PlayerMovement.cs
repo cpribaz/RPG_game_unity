@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         //checking children components for an animator 
         anim = GetComponentInChildren<Animator>();
+
+        //setting count to zero 
+        count = 0;
     }
 
     // Update is called once per frame
