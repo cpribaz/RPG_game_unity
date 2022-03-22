@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    
-
+        
     public float currHealth;
     public float maxHealth;
 
     public bool isDead;
+
+    
 
     public virtual void CheckHealth()
     {
@@ -41,6 +42,7 @@ public class CharacterStats : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currHealth -= damage;
+        
     }
 
     /*

@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         //setting count to zero 
         count = 0;
+
     }
 
     // Update is called once per frame
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Attack());
         }
+        
     }
 
     //function for movement 

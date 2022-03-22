@@ -22,6 +22,11 @@ public class PlayerHUD : MonoBehaviour
         playerStats = GetComponent<CharacterStats> ();
 
     }
+    public void TakeDamage(float damage)
+    {
+        playerStats.currHealth -= damage;
+        SetStats();
+    }
 
     void SetStats()
     {

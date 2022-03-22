@@ -15,12 +15,14 @@ public class CameraController : MonoBehaviour
     {
         parent = transform.parent;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     private void Update()
     {
         Rotate();
+        
     }
 
     private void Rotate()
@@ -28,5 +30,14 @@ public class CameraController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 
         parent.Rotate(Vector3.up, mouseX);
+    }
+
+    void OnApplicationFocus(bool ApplicationisBack)
+    {
+        if (ApplicationisBack == true)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }
