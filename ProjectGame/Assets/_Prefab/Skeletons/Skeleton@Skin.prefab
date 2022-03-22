@@ -946,7 +946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stoppingDist: 5
-  damage: 5
+  damage: 1
 --- !u!54 &3300321283490247602
 Rigidbody:
   m_ObjectHideFlags: 0

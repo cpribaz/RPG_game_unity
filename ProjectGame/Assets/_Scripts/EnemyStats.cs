@@ -25,7 +25,6 @@ public class EnemyStats : CharacterStats
 
     private void Update()
     {
-
         CheckHealth();
         if (isDead == true)
         {
@@ -55,26 +54,13 @@ public class EnemyStats : CharacterStats
     {
         if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            currHealth -= 10;
+                currHealth -= 10;
         }
+        
         if (other.gameObject.CompareTag("Player") && !Input.GetKeyDown(KeyCode.Mouse0))
         {
             currHealth -= 2;
         }
-        /*
-        if (Time.time - lastAttackTime >= attackCoolDown)
-        {
-            lastAttackTime = Time.time;
-            TakeDamage(other);
-
-        }
-        */
-        //this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+        
     }
-    /*
-    private void OnTriggerExit(Collider other)
-    {
-        this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
-    }
-    */
 }
