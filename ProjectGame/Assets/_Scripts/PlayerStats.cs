@@ -4,28 +4,36 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-    
-    private PlayerHUD hud;
+    PlayerHUD playerHUD;
 
     private void Start()
     {
-        GetReferences();
-        InitVariable();
-    }
+        playerHUD = GetComponent<PlayerHUD>();
 
-    private void GetReferences()
+        maxHealth = 100;
+        currHealth= 100;
+
+        
+    }
+    private void Update()
     {
-        hud = GetComponent<PlayerHUD>();
+        CheckHealth();
+    }
+    public override void Die()
+    {
+        Debug.Log("You Died");
+        
+    }
+    
+    void SetStats()
+    {
+        playerHUD.healthAmount.text = currHealth.ToString();
+        playerHUD.healthAmount.text = maxHealth.ToString();
     }
 
     public override void CheckHealth()
     {
         base.CheckHealth();
-        hud.UpdateHealth(health, maxHealth);
-    }
-
-    private void Update()
-    {
-       
+        SetStats();
     }
 }

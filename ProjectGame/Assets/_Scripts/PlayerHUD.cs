@@ -5,15 +5,36 @@ using UnityEngine.UI;
 
 public class PlayerHUD : MonoBehaviour
 {
-    [SerializeField] private Text currentHealthText;
-    [SerializeField] private Text maxHealthText;
+    public Text healthAmount;
+    public Text maxHealthAmount;
 
+    CharacterStats playerStats;
 
-    public void UpdateHealth(int currentHealth, int maxHealth)
+    private void Start()
     {
-        currentHealthText.text = currentHealth.ToString();
-        maxHealthText.text = currentHealth.ToString();
+        playerStats = GetComponent<CharacterStats>();
+        
     }
 
+    private void Update()
+    {
+        SetStats();
+        playerStats = GetComponent<CharacterStats> ();
+
+    }
+
+    void SetStats()
+    {
+        healthAmount.text = playerStats.currHealth.ToString();
+        maxHealthAmount.text = playerStats.maxHealth.ToString();
+    }
+
+    
+    public void UpdateHealth(int currentHealth, int maxHealth)
+    {
+        healthAmount.text = currentHealth.ToString();
+        maxHealthAmount.text = maxHealth.ToString();
+    }
+    
     
 }
