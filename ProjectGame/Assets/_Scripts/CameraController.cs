@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
         
     }
 
+    //rotates camera with mouse movement 
     private void Rotate()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -32,6 +33,7 @@ public class CameraController : MonoBehaviour
         parent.Rotate(Vector3.up, mouseX);
     }
 
+    //locks mouse in centre of screen 
     void OnApplicationFocus(bool ApplicationisBack)
     {
         if (ApplicationisBack == true)

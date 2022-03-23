@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-        
+    //variables created to hold stats     
     public float currHealth;
     public float maxHealth;
 
@@ -12,6 +12,7 @@ public class CharacterStats : MonoBehaviour
 
     
 
+    //method to check health 
     public virtual void CheckHealth()
     {
         if(currHealth >= maxHealth)
@@ -26,37 +27,27 @@ public class CharacterStats : MonoBehaviour
 
     }
 
-    public virtual void Die()
-    {
-        //override 
-    }
-
    
+    //health set 
     private void SetHealthTo(int healthToSetTo)
     {
         currHealth = healthToSetTo;
         CheckHealth();
     }
    
-
+    //take damage method created 
     public void TakeDamage(float damage)
     {
         currHealth -= damage;
         
     }
 
+    //commented out code to be potentially used in phase 3 development 
     /*
     public void Heal(int heal)
     {
         int healthAfterHeal = (int)(currHealth + heal);
         SetHealthTo(healthAfterHeal);
-    }
-
-    public void InitVariable()
-    {
-        maxHealth = 100;
-        SetHealthTo((int)maxHealth);
-        isDead = false;
     }
     */
 }

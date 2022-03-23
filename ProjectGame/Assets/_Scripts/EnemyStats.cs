@@ -6,7 +6,10 @@ using TMPro;
 
 public class EnemyStats : CharacterStats
 {
+    //game objects and variables created to be used in below code 
     public GameObject enemy;
+    public int swordDamage = 10;
+    public int chargeDamage = 2;
 
     public TextMeshProUGUI scoreText;
 
@@ -14,6 +17,7 @@ public class EnemyStats : CharacterStats
 
     private void Start()
     {
+        //scene and values set in start function 
         count = 0;
         SetScoreText();
         if(enemy.gameObject.tag == "Skeleton")
@@ -31,6 +35,7 @@ public class EnemyStats : CharacterStats
 
     private void Update()
     {
+        //methods checked every frame in update 
         CheckHealth();
         if (isDead == true)
         {
@@ -47,38 +52,30 @@ public class EnemyStats : CharacterStats
         }
     }
 
+    //method overriden from character stats class to check health
     public override void CheckHealth()
     {
         base.CheckHealth();
     }
 
-    public void TakeDamage(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            currHealth -= 10;
-        }
-        if (other.gameObject.CompareTag("Player") && !Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            currHealth -= 2;
-        }
-
-    }
-
+    
+    //method to detect collision between player and enemy 
     private void OnTriggerEnter(Collider other)
     {
+        //if statements for two different combat styles 
         if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.Mouse0))
         {
-            currHealth -= 10;
+            currHealth -= swordDamage;
         }
         
         if (other.gameObject.CompareTag("Player") && !Input.GetKey(KeyCode.Mouse0))
         {
-            currHealth -= 0;
+            currHealth -= chargeDamage;
         }
         
     }
 
+    //score set set 
     void SetScoreText()
     {
         scoreText.text = "Score: " + count.ToString();
