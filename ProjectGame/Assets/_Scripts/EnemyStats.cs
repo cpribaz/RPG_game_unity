@@ -1,15 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class EnemyStats : CharacterStats
 {
     public GameObject enemy;
-    float lastAttackTime = 0;
-    float attackCoolDown = 1;
+
+    public TextMeshProUGUI scoreText;
+
+    private int count;
 
     private void Start()
     {
+        count = 0;
+        SetScoreText();
         if(enemy.gameObject.tag == "Skeleton")
         {
             maxHealth = 30;
@@ -29,6 +35,15 @@ public class EnemyStats : CharacterStats
         if (isDead == true)
         {
             Destroy(enemy);
+            if (enemy.CompareTag("Skeleton"))
+            {
+                count += 2;
+                SetScoreText();
+            } else if (enemy.CompareTag("Zombie"))
+            {
+                count += 1;
+                SetScoreText();
+            }
         }
     }
 
@@ -52,15 +67,20 @@ public class EnemyStats : CharacterStats
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Mouse0))
+        if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.Mouse0))
         {
-                currHealth -= 10;
+            currHealth -= 10;
         }
         
-        if (other.gameObject.CompareTag("Player") && !Input.GetKeyDown(KeyCode.Mouse0))
+        if (other.gameObject.CompareTag("Player") && !Input.GetKey(KeyCode.Mouse0))
         {
-            currHealth -= 2;
+            currHealth -= 0;
         }
         
+    }
+
+    void SetScoreText()
+    {
+        scoreText.text = "Score: " + count.ToString();
     }
 }

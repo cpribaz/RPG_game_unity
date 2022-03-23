@@ -974,7 +974,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.2, z: 0.1}
+  m_Size: {x: 0.1, y: 0.15, z: 0.075}
   m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!114 &2014587410147513329
 MonoBehaviour:
@@ -992,6 +992,7 @@ MonoBehaviour:
   maxHealth: 0
   isDead: 0
   enemy: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!136 &177225666350214806
 CapsuleCollider:
   m_ObjectHideFlags: 0

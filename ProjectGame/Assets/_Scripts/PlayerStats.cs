@@ -9,10 +9,13 @@ public class PlayerStats : CharacterStats
 
     public GameObject loseText;
 
+    
+
     private void Start()
     {
         playerHUD = GetComponent<PlayerHUD>();
 
+        
         maxHealth = 100;
         currHealth= maxHealth;
 
@@ -51,5 +54,15 @@ public class PlayerStats : CharacterStats
     {
         currHealth -= damage;
         SetStats();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PickUp"))
+        //pickUp object incremented by 1
+        {
+            other.gameObject.SetActive(false);
+            currHealth += 5;
+        }
     }
 }

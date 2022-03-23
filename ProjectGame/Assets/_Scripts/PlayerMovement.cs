@@ -20,11 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpHeight;
 
-    private int count;
+    
 
     //references 
     private CharacterController controller;
     private Animator anim;
+
+    public GameObject breakText;
+    public GameObject breakableWall;
 
 
     // Start is called before the first frame update
@@ -35,9 +38,8 @@ public class PlayerMovement : MonoBehaviour
         //checking children components for an animator 
         anim = GetComponentInChildren<Animator>();
 
-        //setting count to zero 
-        count = 0;
-
+        
+        breakText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Attack());
         }
-        
+
     }
 
     //function for movement 
@@ -149,12 +151,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PickUp"))
-        //pickUp object incremented by 1
-        {
-            other.gameObject.SetActive(false);
-            count = count + 1;
 
+        if (other.gameObject.CompareTag("BreakableWall"))
+        {
+            Destroy(breakableWall);
+            //line below to be used in phase 3
+            //breakText.SetActive(false);
         }
+
     }
 }
