@@ -11,15 +11,12 @@ public class EnemyStats : CharacterStats
     public int swordDamage = 10;
     public int chargeDamage = 2;
 
-    public TextMeshProUGUI scoreText;
-
-    private int count;
+    
 
     private void Start()
     {
         //scene and values set in start function 
-        count = 0;
-        SetScoreText();
+        
         if(enemy.gameObject.tag == "Skeleton")
         {
             maxHealth = 30;
@@ -37,18 +34,11 @@ public class EnemyStats : CharacterStats
     {
         //methods checked every frame in update 
         CheckHealth();
+        
         if (isDead == true)
         {
             Destroy(enemy);
-            if (enemy.CompareTag("Skeleton"))
-            {
-                count += 2;
-                SetScoreText();
-            } else if (enemy.CompareTag("Zombie"))
-            {
-                count += 1;
-                SetScoreText();
-            }
+            
         }
     }
 
@@ -72,12 +62,8 @@ public class EnemyStats : CharacterStats
         {
             currHealth -= chargeDamage;
         }
-        
+
     }
 
-    //score set set 
-    void SetScoreText()
-    {
-        scoreText.text = "Score: " + count.ToString();
-    }
+    
 }

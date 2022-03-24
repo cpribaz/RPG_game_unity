@@ -5116,6 +5116,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8389886673486239036, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1805234102}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
 --- !u!1 &1354369084
@@ -6500,6 +6504,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1805234102}
     - target: {fileID: 6915616047496857678, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1805234102}
+    - target: {fileID: 6915616047496857678, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
       propertyPath: stoppingDist
       value: 5
       objectReference: {fileID: 0}
@@ -7098,6 +7106,7 @@ MonoBehaviour:
   isDead: 0
   player: {fileID: 1817168770}
   loseText: {fileID: 1373481971}
+  scoreText: {fileID: 1805234102}
 --- !u!1 &1820723105
 GameObject:
   m_ObjectHideFlags: 0
@@ -8074,6 +8083,7 @@ GameObject:
   - component: {fileID: 1936344075}
   - component: {fileID: 1936344074}
   - component: {fileID: 1936344073}
+  - component: {fileID: 1936344076}
   m_Layer: 0
   m_Name: Cube
   m_TagString: BreakableWall
@@ -8156,6 +8166,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936344071}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1936344076
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936344071}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1940278458 stripped
 Transform:
@@ -8934,6 +8958,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8389886673486239036, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1805234102}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
 --- !u!4 &2138778137 stripped
@@ -9074,7 +9102,7 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 8296172668055258455}
-    - target: {fileID: 3685171401813434020, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
+    - target: {fileID: 6915616047496857678, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1805234102}
@@ -9105,9 +9133,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1817168772}
     - target: {fileID: 2014587410147513329, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 1805234102}
+      propertyPath: chargeDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8389886672682775086, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
       propertyPath: m_Name
       value: Skeleton@Skin
@@ -9156,6 +9184,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8389886673486239036, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1805234102}
     - target: {fileID: 8832986840494647769, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
       propertyPath: m_IsTrigger
       value: 0

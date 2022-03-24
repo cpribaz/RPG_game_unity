@@ -152,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("BreakableWall"))
+        if (other.gameObject.CompareTag("BreakableWall") && Input.GetKey(KeyCode.LeftShift))
         {
             Destroy(breakableWall);
             //line below to be used in phase 3

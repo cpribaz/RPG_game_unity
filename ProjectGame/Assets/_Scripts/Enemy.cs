@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,9 +17,12 @@ public class Enemy : MonoBehaviour
 
     GameObject target;
 
-   
+    
+
+
     private void Start()
     {
+        
         //scene is set in start method 
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
@@ -26,6 +30,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        
         //methods checked every frame in update 
         float dist = Vector3.Distance(transform.position, target.transform.position);
         if (dist < stoppingDist)
@@ -69,4 +74,6 @@ public class Enemy : MonoBehaviour
             target.GetComponent<CharacterStats>().CheckHealth();
         }
     }
+    
+    
 }

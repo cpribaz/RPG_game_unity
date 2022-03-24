@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerStats : CharacterStats
 {
@@ -9,7 +10,10 @@ public class PlayerStats : CharacterStats
     public GameObject player;
     public GameObject loseText;
 
+    private int count;
+    public TextMeshProUGUI scoreText;
     
+
 
     private void Start()
     {
@@ -18,9 +22,9 @@ public class PlayerStats : CharacterStats
 
         maxHealth = 100;
         currHealth= maxHealth;
-
+        count = 0;
         SetStats();
-
+        SetScoreText();
         loseText.SetActive(false);
         
     }
@@ -28,6 +32,7 @@ public class PlayerStats : CharacterStats
     {
         //certain functions called every frame 
         CheckHealth();
+        SetScoreText();
         if(isDead == true)
         {
             loseText.SetActive(true);
@@ -39,6 +44,7 @@ public class PlayerStats : CharacterStats
     {
         playerHUD.healthAmount.text = currHealth.ToString();
         playerHUD.maxHealthAmount.text = maxHealth.ToString();
+        
     }
 
     //method to check player health
@@ -54,6 +60,10 @@ public class PlayerStats : CharacterStats
         currHealth -= damage;
         SetStats();
     }
+    void SetScoreText()
+    {
+        scoreText.text = "Score: " + count.ToString();
+    }
 
     //method to detect when player contacts pick up orb 
     private void OnTriggerEnter(Collider other)
@@ -63,6 +73,21 @@ public class PlayerStats : CharacterStats
             //increase players health
             other.gameObject.SetActive(false);
             currHealth += 5;
+        }
+
+        if(other.gameObject.CompareTag("Skeleton"))
+        {
+            if(other.gameObject == null)
+            {
+                count += 2;
+            }
+        }
+        if (other.gameObject.CompareTag("Zombie"))
+        {
+            if (other.gameObject == null)
+            {
+                count += 1;
+            }
         }
     }
 }
