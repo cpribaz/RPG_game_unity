@@ -5068,9 +5068,13 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1805234102}
+    - target: {fileID: 2014587410147513329, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
+      propertyPath: chargeDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8389886672682775086, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
       propertyPath: m_Name
-      value: Skeleton@Skin (4)
+      value: Skeleton3
       objectReference: {fileID: 0}
     - target: {fileID: 8389886672683003406, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
       propertyPath: m_RootOrder
@@ -6493,7 +6497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3231571540023367197, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
       propertyPath: m_Name
-      value: Zombie1 (2)
+      value: Zombie2
       objectReference: {fileID: 0}
     - target: {fileID: 3685171401813434020, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
       propertyPath: enemy
@@ -6503,6 +6507,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1805234102}
+    - target: {fileID: 3685171401813434020, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
+      propertyPath: chargeDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6915616047496857678, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
       propertyPath: scoreText
       value: 
@@ -7106,6 +7114,12 @@ MonoBehaviour:
   isDead: 0
   player: {fileID: 1817168770}
   loseText: {fileID: 1373481971}
+  skeleton1: {fileID: 1678235925}
+  skeleton2: {fileID: 224710874}
+  skeleton3: {fileID: 174646797}
+  zombie1: {fileID: 8296172668055258455}
+  zombie2: {fileID: 1225213222}
+  count: 0
   scoreText: {fileID: 1805234102}
 --- !u!1 &1820723105
 GameObject:
@@ -8910,9 +8924,13 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1805234102}
+    - target: {fileID: 2014587410147513329, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
+      propertyPath: chargeDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8389886672682775086, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
       propertyPath: m_Name
-      value: Skeleton@Skin (3)
+      value: Skeleton2
       objectReference: {fileID: 0}
     - target: {fileID: 8389886672683003406, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
       propertyPath: m_RootOrder
@@ -9102,6 +9120,14 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 8296172668055258455}
+    - target: {fileID: 3685171401813434020, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
+      propertyPath: chargeDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915616047496857678, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6915616047496857678, guid: ec0fdfa89285c4d4dbf219c5496f6cbe, type: 3}
       propertyPath: scoreText
       value: 
@@ -9138,7 +9164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8389886672682775086, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
       propertyPath: m_Name
-      value: Skeleton@Skin
+      value: Skeleton1
       objectReference: {fileID: 0}
     - target: {fileID: 8389886672683003406, guid: d9f6fa051db8e44408d3383e89166a8e, type: 3}
       propertyPath: m_RootOrder

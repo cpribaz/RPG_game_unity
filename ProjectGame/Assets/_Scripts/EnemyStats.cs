@@ -11,7 +11,6 @@ public class EnemyStats : CharacterStats
     public int swordDamage = 10;
     public int chargeDamage = 2;
 
-    
 
     private void Start()
     {
@@ -34,7 +33,6 @@ public class EnemyStats : CharacterStats
     {
         //methods checked every frame in update 
         CheckHealth();
-        
         if (isDead == true)
         {
             Destroy(enemy);
@@ -57,13 +55,9 @@ public class EnemyStats : CharacterStats
         {
             currHealth -= swordDamage;
         }
-        
         if (other.gameObject.CompareTag("Player") && !Input.GetKey(KeyCode.Mouse0))
         {
             currHealth -= chargeDamage;
         }
-
     }
-
-    
 }

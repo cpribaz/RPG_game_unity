@@ -9,8 +9,13 @@ public class PlayerStats : CharacterStats
     //game objects created to be used in unity editor 
     public GameObject player;
     public GameObject loseText;
+    public GameObject skeleton1;
+    public GameObject skeleton2;
+    public GameObject skeleton3;
+    public GameObject zombie1;
+    public GameObject zombie2;
 
-    private int count;
+    public int count;
     public TextMeshProUGUI scoreText;
     
 
@@ -37,6 +42,7 @@ public class PlayerStats : CharacterStats
         {
             loseText.SetActive(true);
         }
+        
     }
     
     //method to track player stats 
@@ -74,20 +80,31 @@ public class PlayerStats : CharacterStats
             other.gameObject.SetActive(false);
             currHealth += 5;
         }
-
+        
         if(other.gameObject.CompareTag("Skeleton"))
         {
-            if(other.gameObject == null)
-            {
-                count += 2;
-            }
+            count += 5;
         }
         if (other.gameObject.CompareTag("Zombie"))
         {
-            if (other.gameObject == null)
-            {
-                count += 1;
-            }
+            count += 1;
         }
+    }
+
+    private void updateScore()
+    {
+            if (isDestroyed(skeleton1) || isDestroyed(skeleton2) || isDestroyed(skeleton3))
+            {
+                count += 2; 
+            }
+
+            if (isDestroyed(zombie1) || isDestroyed(zombie2))
+            {
+                count++;
+            }
+    }
+    private bool isDestroyed(GameObject enemy)
+    {
+        return enemy == null && !ReferenceEquals(enemy, null);
     }
 }

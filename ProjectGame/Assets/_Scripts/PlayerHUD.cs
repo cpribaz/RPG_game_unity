@@ -8,6 +8,7 @@ public class PlayerHUD : MonoBehaviour
     //game objects created to show health stats 
     public Text healthAmount;
     public Text maxHealthAmount;
+    
 
     CharacterStats playerStats;
 

@@ -149,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetLayerWeight(anim.GetLayerIndex("Attack Layer"), 0);
     }
 
+    //method to break wall
     private void OnTriggerEnter(Collider other)
     {
 
