@@ -8,6 +8,10 @@ TagManager:
   - Skeleton
   - Zombie
   - BreakableWall
+  - Player2
+  - Player3
+  - Player1
+  - Bullet
   layers:
   - Default
   - TransparentFX

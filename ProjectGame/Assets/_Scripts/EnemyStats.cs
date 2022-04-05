@@ -46,7 +46,7 @@ public class EnemyStats : CharacterStats
         base.CheckHealth();
     }
 
-    
+     
     //method to detect collision between player and enemy 
     private void OnTriggerEnter(Collider other)
     {
@@ -58,6 +58,12 @@ public class EnemyStats : CharacterStats
         if (other.gameObject.CompareTag("Player") && !Input.GetKey(KeyCode.Mouse0))
         {
             currHealth -= chargeDamage;
+        }
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            
+            currHealth = currHealth - 2;
+            Destroy(other.gameObject);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 
-public class Enemy : MonoBehaviour
+public class Enemy : PlayerMovement
 {
     //game objects and variables created to be used in code below 
     [SerializeField] float stoppingDist; 
@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     GameObject target;
 
     
+   
 
 
     private void Start()
@@ -25,7 +26,20 @@ public class Enemy : MonoBehaviour
         
         //scene is set in start method 
         agent = GetComponent<NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        if (GameObject.Find("Knight").active == true) 
+        { 
+            target = GameObject.FindGameObjectWithTag("Player1"); 
+        }
+        if (GameObject.Find("Samurai").active == true)
+        {
+            target = GameObject.FindGameObjectWithTag("Player2");
+        }
+        if (GameObject.Find("Robot").active == true)
+        {
+            target = GameObject.FindGameObjectWithTag("Player3");
+        }
+        
+
     }
 
     private void Update()
