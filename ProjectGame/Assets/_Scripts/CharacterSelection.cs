@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CharacterSelection : MonoBehaviour
 {
     public GameObject[] characterList;
     private int index;
-    //public static string tagz;
+    
+    
+    
     private void Start()
     {
         index = PlayerPrefs.GetInt("CharacterSelected");
-
+        
         characterList = new GameObject[transform.childCount];
 
         //fill the array with our models 
@@ -20,15 +23,17 @@ public class CharacterSelection : MonoBehaviour
 
         //we toggle off their renderer 
         foreach (GameObject go in characterList)
+        {
             go.SetActive(false);
-        
+        }
         //we toggle on the selected character
-        if(characterList[index])
-            characterList[index].SetActive(true);
-            
-        //tagz = characterList[index].tag;
+        if (characterList[index])
+        {
+            characterList[index].SetActive(true);   
+        }
     }
     
+
     public void ToggleLeft()
     {
         //toggle off the current model

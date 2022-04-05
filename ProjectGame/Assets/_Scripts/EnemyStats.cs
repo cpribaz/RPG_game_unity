@@ -11,6 +11,10 @@ public class EnemyStats : CharacterStats
     public int swordDamage = 10;
     public int chargeDamage = 2;
 
+    public GameObject scoreCube;
+    
+
+
 
     private void Start()
     {
@@ -27,6 +31,11 @@ public class EnemyStats : CharacterStats
             maxHealth = 10;
             currHealth = maxHealth;
         }
+        if(enemy.gameObject.tag == "boss")
+        {
+            maxHealth = 100;
+            currHealth= maxHealth;
+        }
     }
 
     private void Update()
@@ -35,7 +44,9 @@ public class EnemyStats : CharacterStats
         CheckHealth();
         if (isDead == true)
         {
+            GameObject scoreObject = Instantiate(scoreCube, new Vector3(gameObject.transform.position.x, 3f, gameObject.transform.position.z), Quaternion.identity);
             Destroy(enemy);
+            
             
         }
     }
@@ -51,11 +62,11 @@ public class EnemyStats : CharacterStats
     private void OnTriggerEnter(Collider other)
     {
         //if statements for two different combat styles 
-        if (other.gameObject.CompareTag("Player") && Input.GetKey(KeyCode.Mouse0))
+        if (other.gameObject.CompareTag("Player1") && Input.GetKey(KeyCode.Mouse0))
         {
             currHealth -= swordDamage;
         }
-        if (other.gameObject.CompareTag("Player") && !Input.GetKey(KeyCode.Mouse0))
+        if ((other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2") || other.gameObject.CompareTag("Player3")) && !Input.GetKey(KeyCode.Mouse0))
         {
             currHealth -= chargeDamage;
         }

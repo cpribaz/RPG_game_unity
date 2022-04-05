@@ -20,14 +20,15 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float jumpHeight;
 
-    public string tagz;
+    //public string tagz;
 
     //references 
     private CharacterController controller;
     private Animator anim;
 
-    public GameObject breakText;
+    
     public GameObject breakableWall;
+    public GameObject breakableWall2;
 
 
     // Start is called before the first frame update
@@ -38,10 +39,6 @@ public class PlayerMovement : MonoBehaviour
         //checking children components for an animator 
         anim = GetComponentInChildren<Animator>();
 
-        
-        breakText.SetActive(false);
-
-        tagz = tag;
     }
 
     // Update is called once per frame
@@ -75,9 +72,7 @@ public class PlayerMovement : MonoBehaviour
         //forward motion set relative to player orientation 
         moveDirection = transform.TransformDirection(moveDirection);
 
-        //if (isGrounded)
-        //{
-            //two conditions must be met: if moveDirection not equal to 0 in any direction and left shift key not pressed
+       
             if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
             {
                 //walking
@@ -100,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Jump();
             }
-       // }
+ 
         
 
 
@@ -138,10 +133,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (gameObject.tag == "Player2")
-        {
-            jumpHeight = 20;
-        }
         velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
     }
 
@@ -159,11 +150,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("BreakableWall") && Input.GetKey(KeyCode.LeftShift))
+        if (other.gameObject.CompareTag("BreakableWall") && Input.GetKey(KeyCode.LeftShift) && gameObject.tag == "Player1")
         {
             Destroy(breakableWall);
-            //line below to be used in phase 3
-            //breakText.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("BreakableWall2") && Input.GetKey(KeyCode.LeftShift) && gameObject.tag == "Player1")
+        {
+            Destroy(breakableWall2);
         }
 
     }

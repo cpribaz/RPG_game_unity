@@ -4,48 +4,28 @@ using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
 
-public class Enemy : PlayerMovement
+public class Enemy : MonoBehaviour
 {
     //game objects and variables created to be used in code below 
     [SerializeField] float stoppingDist; 
     [SerializeField] float damage;
 
+    //variables for attack cool down time 
     float lastAttackTime = 0;
     float attackCoolDown = 1;
 
+    //objects to allow nav mesh agent to work
     NavMeshAgent agent;
-
     GameObject target;
-
-    
-   
-
-
-    private void Start()
-    {
-        
-        //scene is set in start method 
-        agent = GetComponent<NavMeshAgent>();
-        if (GameObject.Find("Knight").active == true) 
-        { 
-            target = GameObject.FindGameObjectWithTag("Player1"); 
-        }
-        if (GameObject.Find("Samurai").active == true)
-        {
-            target = GameObject.FindGameObjectWithTag("Player2");
-        }
-        if (GameObject.Find("Robot").active == true)
-        {
-            target = GameObject.FindGameObjectWithTag("Player3");
-        }
-        
-
-    }
 
     private void Update()
     {
-        
-        //methods checked every frame in update 
+        //target variable set to player object 
+        GameObject gameOb = GameObject.FindGameObjectWithTag("Player");
+        agent = GetComponent<NavMeshAgent>();
+        target = gameOb.transform.parent.gameObject; 
+
+        //if statement to stop enemy at certain distnace from player
         float dist = Vector3.Distance(transform.position, target.transform.position);
         if (dist < stoppingDist)
         {
@@ -88,6 +68,8 @@ public class Enemy : PlayerMovement
             target.GetComponent<CharacterStats>().CheckHealth();
         }
     }
+
     
-    
+
+
 }

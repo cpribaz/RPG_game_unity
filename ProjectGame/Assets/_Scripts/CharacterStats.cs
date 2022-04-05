@@ -7,7 +7,6 @@ public class CharacterStats : MonoBehaviour
     //variables created to hold stats     
     public float currHealth;
     public float maxHealth;
-
     public bool isDead;
 
     
@@ -39,15 +38,5 @@ public class CharacterStats : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currHealth -= damage;
-        
     }
-
-    //commented out code to be potentially used in phase 3 development 
-    /*
-    public void Heal(int heal)
-    {
-        int healthAfterHeal = (int)(currHealth + heal);
-        SetHealthTo(healthAfterHeal);
-    }
-    */
 }

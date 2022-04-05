@@ -11,11 +11,7 @@ public class PlayerTeleport : MonoBehaviour
 
     
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -23,16 +19,20 @@ public class PlayerTeleport : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             int ranNUm = Random.Range(1, 4);
+            
             if(ranNUm == 1) 
-            { 
+            {
+                Debug.Log("Teleport");
                 gameObject.transform.position = teleport1.position; 
             }
             if(ranNUm == 2)
             {
+                Debug.Log("Teleport");
                 gameObject.transform.position = teleport2.position;
             }
             if (ranNUm == 3)
             {
+                Debug.Log("Teleport");
                 gameObject.transform.position = teleport3.position;
             }
            

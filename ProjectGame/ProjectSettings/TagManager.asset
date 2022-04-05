@@ -12,6 +12,13 @@ TagManager:
   - Player3
   - Player1
   - Bullet
+  - greenScore
+  - zomScore
+  - Door
+  - boss
+  - gameWin
+  - trigger
+  - BreakableWall2
   layers:
   - Default
   - TransparentFX

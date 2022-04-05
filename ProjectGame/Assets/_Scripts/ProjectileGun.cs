@@ -73,18 +73,7 @@ public class ProjectileGun : MonoBehaviour
     {
         readyToShoot = false;
 
-        /*
-        //find the hit position 
-        Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
-
-        //check if ray hits something 
-        //Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
-            targetPoint = hit.point;
-        else
-            targetPoint = ray.GetPoint(75);
-        */
+       
         //Calculate direction from attack to target 
         Vector3 directionWithoutSpread = targetPoint.position  - attackPoint.position;
 
